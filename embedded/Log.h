@@ -10,7 +10,7 @@
  * 
  * note:       Cabecalho da Classe de Log/fila da 2a camada de Aplication/Control
  * 
- * Version:    V1.1             Date:2023-11-17
+ * Version:    V1.2             Date:2023-11-18
  * *******************************************************************************
  */
 #ifndef LOG_H
@@ -18,10 +18,10 @@
 
 #include <queue>
 #include <string>
-#include "Compass.h"  // Incluindo a classe Compass
-#include "DirectionCalc.h" // Incluindo a classe DirectionCalc
-#include "UART.h"             // Incluindo a classe UART/USB
-#include "Wireless.h"            // Incluindo a classe Wireless
+#include "Compass.h"        // Incluindo a classe Compass
+#include "DirectionCalc.h"  // Incluindo a classe DirectionCalc
+#include "UART.h"           // Incluindo a classe UART/USB
+#include "Wireless.h"       // Incluindo a classe Wireless
 
 class Log {
 public:

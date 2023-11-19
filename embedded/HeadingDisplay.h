@@ -10,7 +10,7 @@
  * 
  * note:       Cabecalho da Classe de 2a camada de Aplication/Control
  * 
- * Version:    V1.0             Date:2023-11-17
+ * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************
  */
 #ifndef HEADINGDISPLAY_H

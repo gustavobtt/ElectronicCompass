@@ -10,40 +10,40 @@
  * 
  * note:       
  * 
- * Version:    V1.0             Date:2023-11-17
+ * Version:    V1.2             Date:2023-11-18
  * *******************************************************************************
  */
 #include "Log.h"
-#include "pico/stdlib.h"  // Certifique-se de que essa biblioteca está correta para a Raspberry Pi Pico
+#include "pico/stdlib.h"  // conferir biblioteca da Raspberry Pi Pico
 
 Log::Log() {
-    // Inicialize conforme necessário, se houver alguma inicialização específica
+    // Inicializa conforme necessario
 }
 
 Log::~Log() {
-    // A fila será destruída automaticamente quando o objeto for destruído
+    // A fila sera destruida automaticamente quando o objeto for destruido
 }
 
 temp Log::addLog(int ID, const char* timestamp, const char* data) {
-    // Crie uma instância de LogData
+    // Cria instancia de LogData
     LogData logEntry = {ID, timestamp, data};
 
-    // Adicione o log à fila
+    // Adiciona o log na fila
     return logQueue.Enqueue(logEntry);
 }
 
 size_t Log::getLogSize() const {
-    // Obtenha o tamanho da fila
+    // Obtem o tamanho da fila
     return logQueue.Size();
 }
 
 void Log::clearLog() {
-    // Limpe a fila
+    // Limpa a fila
     logQueue.Clear();
 }
 
 Log::LogData Log::getNextLog() {
-    // Remova e retorne o próximo log da fila
+    // Remove e retorna o proximo log da fila
     return logQueue.Dequeue();
 }
 
