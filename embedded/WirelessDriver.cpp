@@ -8,7 +8,8 @@
  *             UFSC - Universidade Federal de Santa Catarina
  *             EEL7323-08235 Programacao C++ para Sistemas Embarcados
  * 
- * note:       
+ * note:       Implementacao da classe WirelessDriver da 5a camada de onboard
+ *             driver layer
  * 
  * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************

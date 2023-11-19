@@ -8,7 +8,7 @@
  *             UFSC - Universidade Federal de Santa Catarina
  *             EEL7323-08235 Programacao C++ para Sistemas Embarcados
  * 
- * note:       RASCUNHO Implementacao dos metodos para a classe de processamento 
+ * note:       Implementacao dos metodos para a classe de processamento 
  *             DirectionCalc
  * 
  * Version:    V0.0             Date:2023-11-17
@@ -38,7 +38,7 @@ void DirectionCalc::calculateDirection() {
 
 // Metodo para obter a direcao calculada
 double DirectionCalc::getDirection() const {
-    return rawX + rawY;  // Substitua com a logica real, se necessario
+    return rawX + rawY;  // Substitua com a logica real
 }
 
 // Metodo para atualizar o log com dados 

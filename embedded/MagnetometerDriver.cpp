@@ -8,7 +8,8 @@
  *             UFSC - Universidade Federal de Santa Catarina
  *             EEL7323-08235 Programacao C++ para Sistemas Embarcados
  * 
- * note:       
+ * note:       Implementacao da Classe de driver do magnetometro da 4a camada de external
+ *             driver layer
  * 
  * Version:    V1.0             Date:2023-11-17
  * *******************************************************************************

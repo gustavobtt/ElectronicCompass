@@ -8,7 +8,7 @@
  *             UFSC - Universidade Federal de Santa Catarina
  *             EEL7323-08235 Programacao C++ para Sistemas Embarcados
  * 
- * note:       implementacao da classe HeadingDisplay que vai mostrar o apontamento
+ * note:       Implementacao da classe HeadingDisplay que vai mostrar o apontamento
  *             da bussola eletronica
  * 
  * Version:    V1.0             Date:2023-11-18

@@ -8,7 +8,7 @@
  *             UFSC - Universidade Federal de Santa Catarina
  *             EEL7323-08235 Programacao C++ para Sistemas Embarcados
  * 
- * note:       
+ * note:       Implementacao da Classe de comunicacao serial 2a camada de Aplication/Control
  * 
  * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************
