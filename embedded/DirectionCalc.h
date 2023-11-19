@@ -11,7 +11,7 @@
  * note:       Cabecalho da 3a Classe, de processamento, para calculo de direction
  *             a partir das componentes brutas rawX e rawY 
  * 
- * Version:    V1.0             Date:2023-11-17
+ * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************
  */
 #ifndef DIRECTIONCALC_H
@@ -24,10 +24,10 @@ class Log;
 
 class DirectionCalc {
 public:
-    // Construtor que aceita um objeto Log como parâmetro
+    // Construtor que aceita um objeto Log como parametro
     DirectionCalc(Log& log);
 
-    // Métodos para lidar com os dados brutos e calcular a direção
+    // Metodos para lidar com os dados brutos e calcular a direcao
     void calculateDirection();
     double getDirection() const;
     void updateLog(const std::string& logData);
@@ -37,10 +37,10 @@ private:
     double rawX;
     double rawY;
 
-    // Referência à classe Log (associação)
+    // Referencia de associacao para a classe Log
     Log& log;
 
-    // Método privado para obter dados brutos do MagnetometerDriver
+    // Metodo privado para obter dados brutos do MagnetometerDriver
     void getRawData();
 };
 

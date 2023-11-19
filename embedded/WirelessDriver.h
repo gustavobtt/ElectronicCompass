@@ -10,7 +10,7 @@
  * 
  * note:       
  * 
- * Version:    V1.0             Date:2023-11-17
+ * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************
  */
 #ifndef WIRELESSDRIVER_H
@@ -20,16 +20,16 @@
 
 class WirelessDriver {
 public:
-    // Construtor que aceita uma instância de Wireless como parâmetro
+    // Construtor que aceita uma instancia de Wireless como parametro
     WirelessDriver(Wireless& wireless);
 
-    // Métodos para interagir com a conexão wireless
+    // Metodos para interagir com a conexao wireless
     void establishConnection();
     void requestData();
     void deliverData(const char* data);
 
 private:
-    // Referência à classe Wireless (associação)
+    // Referencia de associacao para a classe Wireless
     Wireless& wireless;
 };
 

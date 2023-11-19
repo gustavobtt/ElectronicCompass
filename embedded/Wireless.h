@@ -10,7 +10,7 @@
  * 
  * note:       Cabecalho da Classe de comunicacao Wireless 2a camada de Aplication/Control
  * 
- * Version:    V1.0             Date:2023-11-17
+ * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************
  */
 #ifndef WIRELESS_H
@@ -25,7 +25,7 @@ public:
     // Construtor que aceita um objeto Compass, um objeto Log e um objeto WirelessDriver como parametros
     Wireless(Compass& compass, Log& log, WirelessDriver& wirelessDriver);
 
-    // Metodo para conectar à um dispositivo sem fio
+    // Metodo para conectar a dispositivo sem fio
     void connectTo(WirelessDevice& wirelessDevice);
 
     // Metodos para solicitar e enviar dados de log
@@ -39,7 +39,7 @@ private:
     // Agregacao com a classe Compass (objeto, pois eh proprietaria)
     Compass compass;
 
-    // Associacao com a classe Log (referência, pois nao eh proprietaria)
+    // Associacao com a classe Log (referencia, pois nao eh proprietaria)
     Log& log;
 
     // Associacao com a classe WirelessDriver (ponteiro, pois nao eh proprietaria)

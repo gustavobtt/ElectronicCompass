@@ -10,7 +10,7 @@
  * 
  * note:       
  * 
- * Version:    V1.0             Date:2023-11-17
+ * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************
  */
 #ifndef UARTDRIVER_H
@@ -20,17 +20,17 @@
 
 class UARTdriver {
 public:
-    // Construtor que aceita uma instância de UART como parâmetro
+    // Construtor com instancia de UART como parametro
     UARTdriver(UART& uart);
 
-    // Métodos para interagir com a UART
+    // Metodos para interagir com a UART
     void readSerial();
     void printSerial(const char* data);
     void requestData();
     void deliverData(const char* data);
 
 private:
-    // Referência à classe UART (associação)
+    // Referencia de associacao da classe UART
     UART& uart;
 };
 

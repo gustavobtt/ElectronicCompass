@@ -22,7 +22,7 @@
 
 class UARTUSB {
 public:
-    // Construtor que aceita um objeto Compass e um objeto UARTdriver como parametros
+    // Construtor p objetos Compass e UARTdriver como parametros
     UARTUSB(Compass& compass, UARTdriver& uartDriver, Log& log);
 
     // Metodo para conectar a UART a um dispositivo

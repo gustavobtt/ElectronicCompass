@@ -10,7 +10,7 @@
  * 
  * note:       
  * 
- * Version:    V1.0             Date:2023-11-17
+ * Version:    V1.1             Date:2023-11-18
  * *******************************************************************************
  */
 #include "UARTdriver.h"
@@ -32,12 +32,12 @@ void UARTdriver::printSerial(const char* data) {
 }
 
 void UARTdriver::requestData() {
-    // Solicitar dados (simulação - substitua com lógica real)
+    // Implementar conforme funcao requestData()
     uart.print("Data request");
 }
 
 void UARTdriver::deliverData(const char* data) {
-    // Entregar dados (simulação - substitua com lógica real)
+    // Implementar conforme funcao deliveryData()
     uart.print("Delivering data: ");
     uart.print(data);
 }
