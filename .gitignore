@@ -1,3 +1,15 @@
+# VS Code
+.vscode
+
+# Build Folders
+build/
+
+# Template .gitignore for C++
+# Executables
+*.exe
+*.out
+*.app
+
 # Prerequisites
 *.d
 
@@ -25,8 +37,3 @@
 *.la
 *.a
 *.lib
-
-# Executables
-*.exe
-*.out
-*.app
