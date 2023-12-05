@@ -131,7 +131,7 @@ abaixo em uma abordagem "de dentro para fora":
 \end{itemize}
 Essa organização se apresentou clara e permite uma separação adequada de responsabilidades em cada camada de classes do sistema, 
 o que é uma boa prática para melhor documentar, estruturar e facilitar a compreensão e manutenção do projeto. O diagrama de classes 
-pode ser visto na \autoref{fig:diagrama-classes} do Apêndice A. \\ \\
+pode ser visto na \autoref{fig:diagrama-classes} do Apêndice A.
 
 %\section{Resultados}
 
@@ -165,4 +165,49 @@ pode ser visto na \autoref{fig:diagrama-classes} do Apêndice A. \\ \\
 %grd...
 %\end{verbatim}
 %}
+\onecolumn
+\appendix{Apêndice B}
+\label{apendice-b}
+
+\subsection*{Plano de testes da Bússola eletrônica de 2 Eixos}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.44]{figures/PlanoTestes.png}
+ % \caption{Diagrama de classes do projeto organizado em camadas.}
+  \label{fig:diagrama-classes}
+\end{figure}
+
+\subsection*{Introdução}
+O objetivo desse plano de teste é orientar o teste de funcionamento do sistema Bússola Eletrônica	de 2 Eixos e suas partes.
+\subsection*{Ambiente}
+Uso de computador tipo PC rodando máquina virtual WSL Ubuntu no sistema operacional Windows 10 ou 11.
+\subsection*{Processo}
+\begin{itemize}
+  \item Ligar o computador
+  \item Rodar o WSL
+  \item Clonar o repositório \cite{src-github} para a pasta local HOME.
+  \item Entrar na pasta ~/ElectronicCompass\$ 
+  \item Rodar a aplicação com o comando pcHost
+\end{itemize}
+
+\subsection*{Testes 1}
+Resultados esperados:
+\begin{itemize}
+  \item Obter sucesso na conexão da comunicação
+  \item Conseguir visualizar o tamanho do log de dados
+  \item Visualizar os dados do período desejado
+  \item Salvar os dados do período desejado
+  \item Sair da aplicação com sucesso
+\end{itemize}
+
+\begin{itemize}
+  \item Conferir exibição do menu de seleção na terminal
+  \item Digitar a opção 1
+  \item Verificar status da conexão
+  \item Digitar a opção 2 para visualizar o tamanho do log de dados
+  \item Digitar a opção 3 para visualizar os dados do log
+  \item Digitar a opção 4 para salvar os dados do log
+  \item Digitar a opção X para encerrar a aplicação
+\end{itemize}
+
 \end{document}
