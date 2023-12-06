@@ -11,6 +11,7 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{verbatim}
 
 %% Sets page size and margins
 \usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=2cm,marginparwidth=1.75cm]{geometry}
@@ -84,7 +85,6 @@ foram listados os requisitos de desenvolvimento combinados para uma Bússola Ele
     \item O \emph{host} pode conferir o tempo em que a Bússola Eletrônica se manteve ativa 
 \end{itemize}
 
-
 \section{Design Proposto do sistema embarcado}
 
 Como o microcontrolador ARM RP2040 \cite{RP2040_Datasheet} é \emph{dual-core} foi decidido implementar 2 máquinas de estado. Uma 
@@ -123,23 +123,13 @@ Para garantir a modularidade do projeto, o diagrama de classes proposto utilizou
   \item Device Drivers Layer: Essa camada mais geral foi subdivididida após revisão, pois gerencia os drivers para GPIO, UART, comunicação sem fio (que são \emph{on-board} da Raspberry Pi Pico) e o magnetômetro (que é um dispositivo externo à Raspberry Pi Pico, por isso locado na subcamada de drivers externos).
   \item Processing Layer: Lida com o processamento dos dados, incluindo a classe `DirectionCalculator`. Esta camada também pode ser usada 
   para implementações futuras de técnicas de Digital Signal Processing como média móvel, dizimação, etc.
-  \item Control/Application Layer: Responsável por controlar as partes funcionais do equipamento. É o ponto central onde as operações 
-  funcionais são coordenadas. 
-  \item User Interaction Layer: É a camada mais externa que lida com a interação do usuário, incluindo as classes `HeadingDisplay`, `Log`, 
-  e as interfaces de comunicação com o usuário.
+  \item Control/Application Layer: Responsável por controlar as partes funcionais do projeto. É o ponto central onde as operações 
+  funcionais são coordenadas, incluindo as classes `HeadingDisplay', `Log', `UART' e `Wireless'. 
+  \item User Interaction Layer: É a camada mais externa que lida com a interação do usuário, onde está a classe ``ElectronicCompass'' propriamente dita.
 \end{itemize}
 Essa organização se apresentou clara e permite uma separação adequada de responsabilidades em cada camada de classes do sistema, 
 o que é uma boa prática para melhor documentar, estruturar e facilitar a compreensão e manutenção do projeto. O diagrama de classes 
-pode ser visto na \autoref{fig:diagrama-classes} do Apêndice A.
-
-\subsection[short]{Implementação da fila \emph{Queue}}
-Cada evento/nodo da fila contém: ID do sistema embarcado; data/hora do evento usando o 
-clock/calendar desenvolvido anteriormente; aceitar limpeza da fila quando log for transferido
-para \emph{host}.
-\subsection[short]{Implementação da comunicação UART/USB}
-
-\subsection[short]{Implementação da Wireless}
-
+pode ser visto na \autoref{fig:diagrama-classes} do no Apêndice A.
 
 \section{Design Proposto para o \emph{Host}}
 A proposta do \emph{Host} foi baseada implementação de um software que deve rodar no computador, na máquina 
@@ -154,13 +144,286 @@ Quando o software é iniciado, o usuário ADMIN deve confirmar o início da cone
   \item desativar conexão/sair.
 \end{itemize}
 
+Usando o mesmo conceito de camadas para o projeto do software do \emph{Host}, o diagrama de classes é apresentado na \autoref{fig:diagrama-host} do Apêndice B. 
+Dessa maneira, a modularidade do projeto no \emph{Host} também é facilitada, por exemplo se houver interesse em implementar o sistema com outro módulo como STM32 ao invés da Raspberry Pi Pico. 
+A descrição das camadas é parecida com o que já foi descrito para o projeto embarcado:
+\begin{itemize}
+  \item Hardware Abstraction Layer (HAL): Responsável por abstrair o hardware subjacente, incluindo os módulos do SDK da Raspberry Pi Pico.
+  \item Device Drivers Layer: Essa camada mais geral foi subdivididida após revisão, pois gerencia os drivers para GPIO, UART, comunicação sem fio (que são \emph{on-board} da Raspberry Pi Pico) e o magnetômetro (que é um dispositivo externo à Raspberry Pi Pico, por isso locado na subcamada de drivers externos).
+  \item Processing Layer: Lida com o processamento dos dados, incluindo a classe `DirectionCalculator`. Esta camada também pode ser usada 
+  para implementações futuras de técnicas de Digital Signal Processing como média móvel, dizimação, etc.
+  \item Control/Application Layer: Responsável por controlar as partes funcionais do equipamento. É o ponto central onde as operações 
+  funcionais são coordenadas. 
+  \item User Interaction Layer: É a camada mais externa que lida com a interação do usuário, incluindo as classes `HeadingDisplay`, `Log`, 
+  e as interfaces de comunicação com o usuário.
+\end{itemize}
+%Herança OK
+%Friends OK
+%Template
+%Funções virtuais
+%Tratamento de exceções
+%Sobrecarga de operadores OK
+%Polimorfismo (com classes abstratas)
 
-%\section{Resultados}
+\section{Resultados de implementação}
+A execução do projeto como um todo levou em consideração o uso das técnicas apresentadas em aula, e alguns exemplos apresentados a seguir constam nos códigos disponíveis no repositório do GitHub\cite{src-github}. 
 
-%O software foi implementado e testado na plataforma Atlys e o comportamento do controlador funcionou conforme a especificação.
-%Uma demonstração do funcionamento dos botões e terminal foi realizada em sala, simulando situações de inserção de moedas, obtenção de refrigerante e devolução do montante acumulado, e os logs resultantes podem ser vistos no \autoref{apendice-a}.
-%A funcionalidade do display Oled não foi implementada em sala por uma questão de tempo, visto que a equipe já havia utilizado o diplay Oled em exercícios anteriores, então decidiu focar nas funcionalidades que ainda não haviam sido exploradas pela equipe.
-%O código fonte encontra-se disponível no GitHub \cite{src-github}
+\subsection{Uso de Herança e Herança Múltipla}
+No decorrer do projeto o uso de Herança foi exencial, por exemplo nas classes Connection e PicoConnection do projeto do \emph{Hosto}, mas certamente o exemplo mais notável é de Herança Múltipla nas classes base Clock e Calendar e na classe derivada ClockCalendar. A classe ClockCalendar herda publicamente tanto de Clock quanto de Calendar, indicando a Herança Múltipla, como pode ser visto no trecho de código abaixo: 
+{\scriptsize
+\begin{verbatim}
+  #include "ClockCalendar.hpp"
+
+  ClockCalendar::ClockCalendar(int t_day, int t_month, int t_year, 
+                      int t_hr, int t_min, int t_sec, int t_isPm)
+      : Clock(t_hr, t_min, t_sec, t_isPm), Calendar(t_day, 
+              t_month, t_year) {
+      // Inicializa classe base Clock com parametros de tempo
+      // Inicializa classe base Calendar com parametros de data
+  }
+  
+  void ClockCalendar::advance() {
+      // Implementacao de advance() para classe ClockCalendar
+      // chamar advance() das classes base Clock e Calendar
+  }
+\end{verbatim}
+}
+
+\subsection{Uso de Friends}
+Um exemplo de uso de Friends, que é uma forma de permitir que uma classe ou uma função acesse os membros privados ou protegidos de outra classe, sem violar o princípio do encapsulamento, foi utilizado nas classes Connection e Data do projeto do \emph{Host}. 
+Essa implementação pode ser vista nos códigos fonte dos arquivos Connection.h, Data.h e Data.cpp. Abaixo segue recorte do arquivo Connection.h mostrando o uso de Friends (notar que trechos do código considerados irrelevantes para o exemplo foram omitido com ``...''):
+{\scriptsize
+\begin{verbatim}
+  /**
+  * *****************************************************,
+  * File:       Connection.h
+  ...
+  public:
+  ...
+    friend class Data;
+    //Declara classe Data como amiga para
+    //acessar membros privados de Connection
+    
+    queue<string> dataQueue; 
+    // Fila para armazenar dados recebidos pela serial
+    // declarada como pública para classe Data acessar
+
+...  
+\end{verbatim}
+}
+
+\subsection{Uso de Template}
+Um template pode ser útil para evitar a repetição de código ou para implementar algoritmos independentes de tipos. 
+Um exemplo de uso de template pode ser visto no projeto do \emph{Host}, especificamente na classe Data, que usa um template para definir um método chamado saveData, que salva os dados da fila dataQueue em um arquivo de texto, com qualquer tipo de dado que possa ser convertido em string.
+Segue trecho do código citado: 
+{\scriptsize
+\begin{verbatim}
+  ...
+template <typename T>
+void Data::saveData(queue<T> dataQueue) {
+    ofstream file; 
+    // Cria objeto classe ofstream para saida
+    
+    file.open("data.txt"); 
+    // Abre o arquivo data.txt
+    
+    if (file.is_open()) { 
+      // Se aberto com sucesso
+
+        while (!dataQueue.empty()) { 
+          // Enquanto fila dataQueue não vazia
+
+            file << dataQueue.front() << endl; 
+            // Escreve elemento da frente da 
+            //fila no arquivo com quebra de linha
+
+            dataQueue.pop(); 
+            // Remove o elemento da frente da fila
+        }
+        file.close(); 
+        // Fecha o arquivo
+
+        cout << "Dados salvos com sucesso." << endl;
+    }
+    else { 
+      // Se arquivo não aberto
+
+        cout << "Erro ao abrir o arquivo." << endl;
+    }
+    ...
+}
+
+\end{verbatim}
+}
+
+\subsection{Uso de Funções Virtuais}
+As funções virtuais são funções ou métodos cujo comportamento pode ser sobrescrito em uma classe herdeira por uma função com a mesma assinatura e são parte fundamental para funcioanmento do conceito de Polimorfismo Abstrato.
+Um exemplo de uso de Funções virtuais no projeto do \emph{Host} pode ser visto nos códigos dos arquivos Connection.h e PicoConnection.h. Abaixo seguem recortes dos arquivos mostrando o uso (notar que trechos do código considerados irrelevantes para o exemplo foram omitido com ``...''):
+{\scriptsize
+\begin{verbatim}
+    ...
+    #include <string>
+    #include "PicoConnection.h" 
+    // Arquivo cabeçalho da classe PicoConnection
+    
+    #include "SerialPort.h" 
+    // Arquivo de cabecalho da classe SerialPort
+    #include...
+      ...
+      class Connection {
+      private:
+      ...
+      public:
+      ...
+          virtual void send(string message); 
+          // para enviar mensagem pela serial
+          
+          virtual string receive(); 
+          // para receber mensagem pela porta serial
+    }
+  \end{verbatim}
+}  
+{\scriptsize
+\begin{verbatim}
+    ...
+  
+  #include <string>
+  #include "Connection.h" 
+  // arquivo de cabeçalho da classe Connection
+     ...
+   
+     class PicoConnection 
+     ...
+       private:
+       ...
+       public:
+       ...
+       void send(string message) override; 
+       // para enviar comando pela serial
+
+       string receive() override; 
+       // para receber resposta pela serial
+       ...
+  ...  
+\end{verbatim}
+}
+
+\subsection{Uso Tratamento de Exceções}
+Tratamento de exceções é um recurso que permite lidar com situações de erro ou anormais e consiste em três palavras-chave: try, throw e catch.
+No trecho de código abaixo da classe DirectionCalculator do projeto embarcado é apresentada uma solução pra tratamento da exceção de divisão por zero:
+
+{\scriptsize
+\begin{verbatim}
+  // Metodo para calcular direcao com dados brutos
+  void DirectionCalc::calculateDirection() {
+
+      // Simulacao de calculos 
+      rawX = 1.0;  
+      rawY = 2.0;
+  
+      // bloco try-catch para tratar a excecao
+      try {
+
+          // Verificar se os dados brutos sao validos
+          if (rawX <= 0 || rawY <= 0) {
+
+              // Lançar uma excecao com a mensagem
+              throw "Dados brutos inválidos";
+          }
+          else {
+
+              // Realizar calculos para obter a direcao
+              // (substituir com a logica real)
+              double calculatedDirection = rawX + rawY;
+  
+              // Atualizar o log com dados 
+              updateLog("Direction calculated: " 
+                + std::to_string(calculatedDirection));
+          }
+      }
+      catch (const char* msg) {
+        
+          // Capturar a excecao se for uma string
+          // Mostrar a mensagem de erro
+          cerr << "Erro: " << msg << endl;
+      }
+  }
+ int main() {
+
+    // Criar um objeto da classe Log
+    Log log;
+
+    // Criar objeto DirectionCalc e passa log como parametro
+    DirectionCalc dc(log);
+
+    // bloco try-catch para tratar a excecao
+    try {
+
+        // Chamar o metodo calculateDirection do objeto dc
+        dc.calculateDirection();
+    }
+    catch (const char* msg) {
+
+        // Capturar a excecao se for uma string
+        // Mostrar a mensagem de erro
+        cerr << "Erro: " << msg << endl;
+    }
+    catch (...) {
+
+        // Capturar qualquer outra excecao
+        // Mostrar uma mensagem generica
+        cerr << "Erro desconhecido" << endl;
+    }
+    return 0;
+}
+...
+\end{verbatim}
+}
+
+\subsection{Uso de sobrecarga de operadores}
+Um exemplo de sobrecarga de operador de inserção (<<) foi utilizado para a inserção de registro à fila da classe Log:
+{\scriptsize
+\begin{verbatim}
+  #ifndef LOG_H
+  #define LOG_H
+  
+  #include <queue>
+  #include <string>
+  #include "Compass.h"        // Incluindo classe Compass
+  #include "DirectionCalc.h"  // Incluindo classe DirectionCalc
+  #include "UART.h"           // Incluindo classe UART/USB
+  #include "Wireless.h"       // Incluindo classe Wireless
+  
+  class Log {
+  public:
+      // Construtor aceita objetos relacionados como parametros
+      Log(Compass& compass, DirectionCalc& directionCalc, 
+          UART& uart, Wireless& wireless);
+  
+      // Sobrecarga do operador << para adicionar log fila
+      Log& operator<<(const std::string& logData);
+      }  
+\end{verbatim}
+}
+
+\subsection{Uso de Polimorfismo com Classes Abstratas}
+O Polimorfismo é um princípio fundamental na Programação Orientada a Objetos e envolve o uso conjunto de Herança e Funções Virtuais, 
+permitindo que classes derivadas de uma única classe base invoquem métodos com a mesma ``assinatura'', mas que se comportam de maneira diferente para cada uma das classes derivadas. 
+De fato, neste projeto o uso de funções virtuais e herança, caracterizam o emprego de polimorfismo com classes abstratas. Por exemplo na classe base Connection e classe derivada PicoConnection do projeto do \emph{Host} já exemplificadas acima na subseção ``Uso de Funções Virtuais''.
+
+
+\subsection[short]{Implementação de lista e fila ()\emph{Queue})}
+Os eventos da fila com ID do sistema embarcado, data/hora do evento usando o 
+ClockCalendar foram implementados na clase Log do projeto embarcado e a lista do projeto do \emph{Host} já teve implementação apresentada acima no subitem Uso de Template, onde também foi implementada a limpeza da fila quando log é transferido.
+para \emph{host}.
+//\subsection[short]{Implementação da comunicação UART/USB}
+
+//\subsection[short]{Implementação da Wireless}
+
+\subsection[short]{Montagem dos módulos/circuitos}
+A montagem dos módulos foi realizada em protoboard conforme 
+
+O código fonte encontra-se disponível no GitHub \cite{src-github}
 
 \section{Conclusões}
 Falar 
@@ -170,7 +433,7 @@ das vantagens da modularidade dessa abordagem de organização
 
 que a principal dificuldade da disciplina como um todo foi entender o uso da ferramenta de 
 controle de versão Git, a navegação para trabalho em cada \emph{branch} e as ``imagens no tempo''
-para os \emph{commits} do repositório no GitHub.
+para os \emph{commits} do repositório no GitHub. O cuidado com arquivos que Windows cria ao copiar para WSL e dão erro de \emph{commit} ou arquivos a incluir no \emph{.gitignore}
 
 \bibliography{bibliography}
 \onecolumn
@@ -184,22 +447,40 @@ para os \emph{commits} do repositório no GitHub.
   \label{fig:diagrama-classes}
 \end{figure}
 
-%Logs gerados na demonstração em sala:
-%{\scriptsize
-%\begin{verbatim}
-%grd...
-%\end{verbatim}
-%}
 \onecolumn
 \appendix{Apêndice B}
 \label{apendice-b}
+
+\subsection*{Diagrama de classes do projeto do \emph{Host}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.55]{figures/Diagrama_Classe_Host_PC.png}
+  \caption{Diagrama de classes do projeto do \emph{Host}.}
+  \label{fig:diagrama-host}
+\end{figure}
+
+\onecolumn
+\appendix{Apêndice C}
+\label{apendice-c}
+
+\subsection*{Montagem dos módulos do Projeto}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.12]{figures/montagem.jpg}
+  \caption{Montagem dos módulos do projeto.}
+  \label{fig:montagem}
+\end{figure}
+
+\onecolumn
+\appendix{Apêndice D}
+\label{apendice-d}
 
 \subsection*{Plano de testes da Bússola eletrônica de 2 Eixos}
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio=true,scale=0.44]{figures/PlanoTestes.png}
  % \caption{Diagrama de classes do projeto organizado em camadas.}
-  \label{fig:diagrama-classes}
+  \label{fig:plano-testes}
 \end{figure}
 
 \subsection*{Introdução}
