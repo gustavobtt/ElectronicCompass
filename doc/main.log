@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  29 NOV 2023 23:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  5 DEC 2023 23:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1028,7 +1028,7 @@ LaTeX Font Info:    Trying to load font information for OT1+bch on input line 40
  (c:/texlive/2023/texmf-dist/tex/latex/psnfss/ot1bch.fd
 File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
 )
-<figures/ProjetoFinalCPP_Diagrama.png, id=21, 379.4175pt x 412.54124pt>
+<figures/ProjetoFinalCPP_Diagrama.png, id=42, 379.4175pt x 412.54124pt>
 File: figures/ProjetoFinalCPP_Diagrama.png Graphic file (type png)
 <use figures/ProjetoFinalCPP_Diagrama.png>
 Package pdftex.def Info: figures/ProjetoFinalCPP_Diagrama.png  used on input line 61.
@@ -1037,12 +1037,12 @@ Package pdftex.def Info: figures/ProjetoFinalCPP_Diagrama.png  used on input lin
 
 
 {c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figures/ProjetoFinalCPP_Diagrama.png>]
-<figures/maquina_estados1.png, id=41, 410.13225pt x 241.50224pt>
+<figures/maquina_estados1.png, id=63, 410.13225pt x 241.50224pt>
 File: figures/maquina_estados1.png Graphic file (type png)
 <use figures/maquina_estados1.png>
 Package pdftex.def Info: figures/maquina_estados1.png  used on input line 97.
 (pdftex.def)             Requested size: 222.62206pt x 131.0873pt.
-<figures/maquina_estados2.2.png, id=43, 422.17725pt x 248.72925pt>
+<figures/maquina_estados2.2.png, id=65, 422.17725pt x 248.72925pt>
 File: figures/maquina_estados2.2.png Graphic file (type png)
 <use figures/maquina_estados2.2.png>
 Package pdftex.def Info: figures/maquina_estados2.2.png  used on input line 109.
@@ -1051,21 +1051,46 @@ Package pdftex.def Info: figures/maquina_estados2.2.png  used on input line 109.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(./main.bbl) [2 <./figures/maquina_estados1.png> <./figures/maquina_estados2.2.png>]
-<figures/Diagrama_Classe_Projeto_Final.png, id=60, 966.61125pt x 1175.39125pt>
-File: figures/Diagrama_Classe_Projeto_Final.png Graphic file (type png)
-<use figures/Diagrama_Classe_Projeto_Final.png>
-Package pdftex.def Info: figures/Diagrama_Classe_Projeto_Final.png  used on input line 157.
-(pdftex.def)             Requested size: 425.31027pt x 517.17375pt.
- [3
+[2 <./figures/maquina_estados1.png> <./figures/maquina_estados2.2.png>] (./main.bbl
+Underfull \hbox (badness 3108) in paragraph at lines 31--33
+[]\T1/cmr/m/n/10 Honeywell. Di-gi-tal com-pass so-lu-
+ []
 
- <./figures/Diagrama_Classe_Projeto_Final.png>]
-<figures/PlanoTestes.png, id=67, 570.33075pt x 255.95625pt>
+
+Underfull \hbox (badness 1603) in paragraph at lines 31--33
+\T1/cmr/m/n/10 ti-ons. [On-line]. Avai-la-ble: [][]$https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+\T1/cmr/m/n/10 / / aerospace . honeywell . com / content / dam /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+\T1/cmr/m/n/10 aerobt / en / documents / learn / products / sensors /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+\T1/cmr/m/n/10 datasheet / N61-[]2047-[]000-[]000 _ Digital _
+ []
+
+) [3]
+<figures/Diagrama_Classe_Projeto_Final_rev2.png, id=94, 701.7417pt x 987.9309pt>
+File: figures/Diagrama_Classe_Projeto_Final_rev2.png Graphic file (type png)
+<use figures/Diagrama_Classe_Projeto_Final_rev2.png>
+Package pdftex.def Info: figures/Diagrama_Classe_Projeto_Final_rev2.png  used on input line 182.
+(pdftex.def)             Requested size: 371.92133pt x 523.60088pt.
+ [4
+
+ <./figures/Diagrama_Classe_Projeto_Final_rev2.png>]
+<figures/PlanoTestes.png, id=101, 570.33075pt x 255.95625pt>
 File: figures/PlanoTestes.png Graphic file (type png)
 <use figures/PlanoTestes.png>
-Package pdftex.def Info: figures/PlanoTestes.png  used on input line 175.
+Package pdftex.def Info: figures/PlanoTestes.png  used on input line 200.
 (pdftex.def)             Requested size: 250.9463pt x 112.6211pt.
- [4
+ [5
 
  <./figures/PlanoTestes.png>] (./main.aux)
  ***********
@@ -1077,21 +1102,21 @@ L3 programming layer <2023-11-09>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BB8C1BF1B299CC9030086FED42C5C193;313.
+(rerunfilecheck)             Checksum: A1D56DDCC8D592C41E3891B913D7AB3B;959.
  ) 
 Here is how much of TeX's memory you used:
- 22526 strings out of 474267
- 415212 string characters out of 5751470
+ 22545 strings out of 474267
+ 415528 string characters out of 5751470
  1940558 words of memory out of 5000000
- 44321 multiletter control sequences out of 15000+600000
- 570436 words of font info for 62 fonts, out of 8000000 for 9000
+ 44331 multiletter control sequences out of 15000+600000
+ 571836 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,101p,511b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (4 pages, 278983 bytes).
+<c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on main.pdf (5 pages, 525703 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 167 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 
