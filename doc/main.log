@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  5 DEC 2023 23:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  6 DEC 2023 11:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -485,11 +485,16 @@ Now handling font encoding U ...
    defining Unicode char U+FEFF (decimal 65279)
 ))) (c:/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (c:/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks19
+\verbatim@line=\toks20
+\verbatim@in@stream=\read3
 ) (c:/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks19
+\KV@toks@=\toks21
 ) (c:/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (c:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
@@ -506,7 +511,7 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutheight=\dimen147
 \Gm@layouthoffset=\dimen148
 \Gm@layoutvoffset=\dimen149
-\Gm@dimlist=\toks20
+\Gm@dimlist=\toks22
 ) (c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
@@ -516,7 +521,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2021/08/26 v2.01 AMS text
  (c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
+\@emptytoks=\toks23
 \ex@=\dimen150
 )) (c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -554,21 +559,21 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \dotsspace@=\muskip16
 \c@parentequation=\count272
 \dspbrk@lvl=\count273
-\tag@help=\toks22
+\tag@help=\toks24
 \row@=\count274
 \column@=\count275
 \maxfields@=\count276
-\andhelp@=\toks23
+\andhelp@=\toks25
 \eqnshift@=\dimen153
 \alignsep@=\dimen154
 \tagshift@=\dimen155
 \tagwidth@=\dimen156
 \totwidth@=\dimen157
 \lineht@=\dimen158
-\@envbody=\toks24
+\@envbody=\toks26
 \multlinegap=\skip51
 \multlinetaggap=\skip52
-\mathdisplay@stack=\toks25
+\mathdisplay@stack=\toks27
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 ) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -594,8 +599,8 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (c:/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (c:/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks26
-\XKV@tempa@toks=\toks27
+\XKV@toks=\toks28
+\XKV@tempa@toks=\toks29
 )
 \XKV@depth=\count277
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
@@ -616,7 +621,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 ) (c:/texlive/2023/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks28
+\pgfutil@everybye=\toks30
 \pgfutil@tempdima=\dimen161
 \pgfutil@tempdimb=\dimen162
 ) (c:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -628,10 +633,10 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/texlive/2023/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks29
-\pgfkeys@temptoks=\toks30
+\pgfkeys@pathtoks=\toks31
+\pgfkeys@temptoks=\toks32
  (c:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks31
+\pgfkeys@tmptoks=\toks33
 ))
 \pgf@x=\dimen163
 \pgf@y=\dimen164
@@ -644,14 +649,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@xd=\dimen171
 \pgf@yd=\dimen172
 \w@pgf@writea=\write3
-\r@pgf@reada=\read3
+\r@pgf@reada=\read4
 \c@pgf@counta=\count278
 \c@pgf@countb=\count279
 \c@pgf@countc=\count280
 \c@pgf@countd=\count281
-\t@pgf@toka=\toks32
-\t@pgf@tokb=\toks33
-\t@pgf@tokc=\toks34
+\t@pgf@toka=\toks34
+\t@pgf@tokb=\toks35
+\t@pgf@tokc=\toks36
 \pgf@sys@id@count=\count282
  (c:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -673,9 +678,9 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 \pgfmath@dimen=\dimen173
 \pgfmath@count=\count285
 \pgfmath@box=\box54
-\pgfmath@toks=\toks35
-\pgfmath@stack@operand=\toks36
-\pgfmath@stack@operation=\toks37
+\pgfmath@toks=\toks37
+\pgfmath@stack@operand=\toks38
+\pgfmath@stack@operation=\toks39
 ) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count286
 )) (c:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -758,8 +763,8 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen256
 \pgffor@skip=\dimen257
-\pgffor@stack=\toks38
-\pgffor@toks=\toks39
+\pgffor@stack=\toks40
+\pgffor@toks=\toks41
 )) (c:/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
@@ -937,31 +942,27 @@ Package: authblk 2001/02/27 1.3 (PWD)
 File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count319
 \l__pdf_internal_box=\box64
-) (./main.aux
-
-LaTeX Warning: Label `fig:diagrama-classes' multiply defined.
-
-)
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1004,12 +1005,12 @@ LaTeX Font Info:    ... okay on input line 39.
 \scratchbox=\box65
 \nofMPsegments=\count321
 \nofMParguments=\count322
-\everyMPshowfont=\toks40
+\everyMPshowfont=\toks42
 \MPscratchCnt=\count323
 \MPscratchDim=\dimen274
 \MPnumerator=\count324
 \makeMPintoPDFobject=\count325
-\everyMPtoPDFconversion=\toks41
+\everyMPtoPDFconversion=\toks43
 ) (c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1017,32 +1018,32 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 
-Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 39.
+Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 40.
 
-Package hyperref Info: Link coloring ON on input line 39.
+Package hyperref Info: Link coloring ON on input line 40.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+bch on input line 40.
+LaTeX Font Info:    Trying to load font information for OT1+bch on input line 41.
  (c:/texlive/2023/texmf-dist/tex/latex/psnfss/ot1bch.fd
 File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
 )
-<figures/ProjetoFinalCPP_Diagrama.png, id=42, 379.4175pt x 412.54124pt>
+<figures/ProjetoFinalCPP_Diagrama.png, id=78, 379.4175pt x 412.54124pt>
 File: figures/ProjetoFinalCPP_Diagrama.png Graphic file (type png)
 <use figures/ProjetoFinalCPP_Diagrama.png>
-Package pdftex.def Info: figures/ProjetoFinalCPP_Diagrama.png  used on input line 61.
+Package pdftex.def Info: figures/ProjetoFinalCPP_Diagrama.png  used on input line 62.
 (pdftex.def)             Requested size: 222.62206pt x 242.06271pt.
  [1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 
 
 {c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figures/ProjetoFinalCPP_Diagrama.png>]
-<figures/maquina_estados1.png, id=63, 410.13225pt x 241.50224pt>
+<figures/maquina_estados1.png, id=99, 410.13225pt x 241.50224pt>
 File: figures/maquina_estados1.png Graphic file (type png)
 <use figures/maquina_estados1.png>
 Package pdftex.def Info: figures/maquina_estados1.png  used on input line 97.
 (pdftex.def)             Requested size: 222.62206pt x 131.0873pt.
-<figures/maquina_estados2.2.png, id=65, 422.17725pt x 248.72925pt>
+<figures/maquina_estados2.2.png, id=101, 422.17725pt x 248.72925pt>
 File: figures/maquina_estados2.2.png Graphic file (type png)
 <use figures/maquina_estados2.2.png>
 Package pdftex.def Info: figures/maquina_estados2.2.png  used on input line 109.
@@ -1051,7 +1052,56 @@ Package pdftex.def Info: figures/maquina_estados2.2.png  used on input line 109.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <./figures/maquina_estados1.png> <./figures/maquina_estados2.2.png>] (./main.bbl
+[2 <./figures/maquina_estados1.png> <./figures/maquina_estados2.2.png>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 174.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Overfull \hbox (22.75502pt too wide) in paragraph at lines 177--177
+[]  \T1/cmtt/m/n/7 ClockCalendar::ClockCalendar(int t_day, int t_month, int t_year,[] 
+ []
+
+
+Overfull \hbox (19.03719pt too wide) in paragraph at lines 178--178
+[]                      \T1/cmtt/m/n/7 int t_hr, int t_min, int t_sec, int t_isPm)[] 
+ []
+
+
+Overfull \hbox (4.16585pt too wide) in paragraph at lines 181--181
+[]      \T1/cmtt/m/n/7 // Inicializa classe base Clock com parametros de tempo[] 
+ []
+
+
+Overfull \hbox (11.60152pt too wide) in paragraph at lines 182--182
+[]      \T1/cmtt/m/n/7 // Inicializa classe base Calendar com parametros de data[] 
+ []
+
+
+Overfull \hbox (4.16585pt too wide) in paragraph at lines 186--186
+[]      \T1/cmtt/m/n/7 // Implementacao de advance() para classe ClockCalendar[] 
+ []
+
+[3] [4]
+Overfull \hbox (11.60152pt too wide) in paragraph at lines 393--393
+[]  \T1/cmtt/m/n/7 #include "DirectionCalc.h"  // Incluindo classe DirectionCalc[] 
+ []
+
+
+Overfull \hbox (11.60152pt too wide) in paragraph at lines 399--399
+[]      \T1/cmtt/m/n/7 // Construtor aceita objetos relacionados como parametros[] 
+ []
+
+
+Underfull \hbox (badness 1521) in paragraph at lines 415--415
+[]\T1/cmr/bx/n/12 Implementação de lista e fila
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--423
+[]\T1/cmr/bx/n/12 Montagem dos mó-du-
+ []
+
+(./main.bbl
 Underfull \hbox (badness 3108) in paragraph at lines 31--33
 []\T1/cmr/m/n/10 Honeywell. Di-gi-tal com-pass so-lu-
  []
@@ -1076,47 +1126,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--33
 \T1/cmr/m/n/10 datasheet / N61-[]2047-[]000-[]000 _ Digital _
  []
 
-) [3]
-<figures/Diagrama_Classe_Projeto_Final_rev2.png, id=94, 701.7417pt x 987.9309pt>
+) [5]
+<figures/Diagrama_Classe_Projeto_Final_rev2.png, id=143, 701.7417pt x 987.9309pt>
 File: figures/Diagrama_Classe_Projeto_Final_rev2.png Graphic file (type png)
 <use figures/Diagrama_Classe_Projeto_Final_rev2.png>
-Package pdftex.def Info: figures/Diagrama_Classe_Projeto_Final_rev2.png  used on input line 182.
+Package pdftex.def Info: figures/Diagrama_Classe_Projeto_Final_rev2.png  used on input line 445.
 (pdftex.def)             Requested size: 371.92133pt x 523.60088pt.
- [4
+ [6
 
  <./figures/Diagrama_Classe_Projeto_Final_rev2.png>]
-<figures/PlanoTestes.png, id=101, 570.33075pt x 255.95625pt>
+<figures/Diagrama_Classe_Host_PC.png, id=149, 619.3539pt x 709.6914pt>
+File: figures/Diagrama_Classe_Host_PC.png Graphic file (type png)
+<use figures/Diagrama_Classe_Host_PC.png>
+Package pdftex.def Info: figures/Diagrama_Classe_Host_PC.png  used on input line 457.
+(pdftex.def)             Requested size: 340.64569pt x 390.33148pt.
+ [7
+
+ <./figures/Diagrama_Classe_Host_PC.png>]
+<figures/montagem.jpg, id=158, 3620.52625pt x 2157.05875pt>
+File: figures/montagem.jpg Graphic file (type jpg)
+<use figures/montagem.jpg>
+Package pdftex.def Info: figures/montagem.jpg  used on input line 469.
+(pdftex.def)             Requested size: 434.44441pt x 258.83588pt.
+ [8
+
+ <./figures/montagem.jpg>]
+<figures/PlanoTestes.png, id=165, 570.33075pt x 255.95625pt>
 File: figures/PlanoTestes.png Graphic file (type png)
 <use figures/PlanoTestes.png>
-Package pdftex.def Info: figures/PlanoTestes.png  used on input line 200.
+Package pdftex.def Info: figures/PlanoTestes.png  used on input line 481.
 (pdftex.def)             Requested size: 250.9463pt x 112.6211pt.
- [5
+ [9
 
  <./figures/PlanoTestes.png>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A1D56DDCC8D592C41E3891B913D7AB3B;959.
+(rerunfilecheck)             Checksum: B1F4D324F14430EF4B1F27570E574FC0;2648.
  ) 
 Here is how much of TeX's memory you used:
- 22545 strings out of 474267
- 415528 string characters out of 5751470
- 1940558 words of memory out of 5000000
- 44331 multiletter control sequences out of 15000+600000
- 571836 words of font info for 64 fonts, out of 8000000 for 9000
+ 22655 strings out of 474267
+ 417945 string characters out of 5751470
+ 1960558 words of memory out of 5000000
+ 44417 multiletter control sequences out of 15000+600000
+ 572917 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,8n,101p,511b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (5 pages, 525703 bytes).
+ 99i,8n,101p,511b,646s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on main.pdf (9 pages, 1708676 bytes).
 PDF statistics:
- 167 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 102 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 241 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 44 named destinations out of 1000 (max. 500000)
+ 184 words of extra memory for PDF output out of 10000 (max. 10000000)
 
