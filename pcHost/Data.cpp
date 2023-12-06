@@ -1,3 +1,18 @@
+/**
+ * *******************************************************************************,
+ * File:       Data.cpp
+ * 
+ * Author:     Gustavo Batistell
+ * Email:      gustavobtt@gmail.com
+ * 
+ *             UFSC - Universidade Federal de Santa Catarina
+ *             EEL7323-08235 Programacao C++ para Sistemas Embarcados
+ * 
+ * note:       
+ * 
+ * Version:    V1.1             Date:2023-12-06
+ * *******************************************************************************
+ */
 #include "Data.h"
 
 // Construtor padrão
@@ -31,7 +46,7 @@ void Data::getData(Connection* conn) {
                     for (int i = 0; i < n; i++) { // Para cada registro
                         response = conn->receive(); // Chama o método receive do objeto apontado por conn e armazena a resposta na string response
                         if (!response.empty()) { // Se a resposta não está vazia
-                            dataQueue.push(response); // Adiciona a resposta na fila dataQueue
+                            conn->dataQueue.push(response); // Adiciona a resposta na fila dataQueue da classe Connection, usando o acesso direto permitido pela declaração friend
                             dataList.push_back(response); // Adiciona a resposta na lista dataList
                         }
                     }
