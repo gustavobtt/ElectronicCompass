@@ -21,7 +21,7 @@ Connection::Connection() {
     baudRate = 115200; // Define a taxa de transmissao como 115200 bps
     port = NULL; // Inicializa o ponteiro port com NULL
     connected = false; // Inicializa o booleano connected com false
-    device = new PicoConnection(); // Cria um novo objeto da classe PicoConnection e atribui ao ponteiro pico
+    pico = new PicoConnection(); // Cria um novo objeto da classe PicoConnection e atribui ao ponteiro pico
 }
 
 // Destrutor
