@@ -52,7 +52,7 @@ perda de documentação e dos códigos originais com o passar dos anos. \\
 Para isso, a tarefa do desenvolvimento inicial foi dividida em duas partes: uma parte para acionamento (driver) e outra parte para 
 um magnetômetro, este último no qual fiquei incumbido.\\
 Assim, utilizado um módulo micro-controlado ARM RP2040 Raspberry Pi Pico \cite{RP2040_Datasheet}, um módulo magnetômetro para medir 
-o campo magnético em pelo menos 2 eixos (seja o HMC5883 ou HoneyWell HMC1002/2300 disponíveis no laboratório), realizar o acionamento 
+o campo magnético em pelo menos 2 eixos (seja o HMC5883 ou HoneyWell HMR3300 \cite{HMR3300_Datasheet} disponíveis no laboratório), realizar o acionamento 
 de leds para apresentar o \emph{heading}, realizar log de dados e suportar acesso via UART/USB e Wireless. Ver diagrama da 
 \autoref{fig:Diagrama_blocos}.
 
@@ -85,7 +85,7 @@ foram listados os requisitos de desenvolvimento combinados para uma Bússola Ele
 \end{itemize}
 
 
-\section{Design Proposto}
+\section{Design Proposto do sistema embarcado}
 
 Como o microcontrolador ARM RP2040 \cite{RP2040_Datasheet} é \emph{dual-core} foi decidido implementar 2 máquinas de estado. Uma 
 delas para a aplicação da Bússola Eletrônica propriamente dita, que ao ser iniciada segue diretamente para o estado de aquisição 
@@ -117,11 +117,10 @@ programação concorrente quando mais de uma \emph{trhead} é possível.
 %  \caption{Tabela de estados.}
 %\end{figure}
 
-Para garantir a modularidade do projeto, o diagrama de classes proposto utilizou de 5 níveis de abstração que são listados 
-abaixo em uma abordagem "de dentro para fora":
+Para garantir a modularidade do projeto, o diagrama de classes proposto utilizou de 5 níveis gerais (com uma subdivisão para a camada de drivers externos e \emph{on-board} incluída em revisão) de abstração que são listados abaixo em uma abordagem "de dentro para fora":
 \begin{itemize}
   \item Hardware Abstraction Layer (HAL): Responsável por abstrair o hardware subjacente, incluindo os módulos do SDK da Raspberry Pi Pico.
-  \item Device Drivers Layer: Gerencia os drivers para GPIO, UART, comunicação sem fio e o magnetômetro.
+  \item Device Drivers Layer: Essa camada mais geral foi subdivididida após revisão, pois gerencia os drivers para GPIO, UART, comunicação sem fio (que são \emph{on-board} da Raspberry Pi Pico) e o magnetômetro (que é um dispositivo externo à Raspberry Pi Pico, por isso locado na subcamada de drivers externos).
   \item Processing Layer: Lida com o processamento dos dados, incluindo a classe `DirectionCalculator`. Esta camada também pode ser usada 
   para implementações futuras de técnicas de Digital Signal Processing como média móvel, dizimação, etc.
   \item Control/Application Layer: Responsável por controlar as partes funcionais do equipamento. É o ponto central onde as operações 
@@ -133,6 +132,29 @@ Essa organização se apresentou clara e permite uma separação adequada de res
 o que é uma boa prática para melhor documentar, estruturar e facilitar a compreensão e manutenção do projeto. O diagrama de classes 
 pode ser visto na \autoref{fig:diagrama-classes} do Apêndice A.
 
+\subsection[short]{Implementação da fila \emph{Queue}}
+Cada evento/nodo da fila contém: ID do sistema embarcado; data/hora do evento usando o 
+clock/calendar desenvolvido anteriormente; aceitar limpeza da fila quando log for transferido
+para \emph{host}.
+\subsection[short]{Implementação da comunicação UART/USB}
+
+\subsection[short]{Implementação da Wireless}
+
+
+\section{Design Proposto para o \emph{Host}}
+A proposta do \emph{Host} foi baseada implementação de um software que deve rodar no computador, na máquina 
+virtual WSL Ubuntu, apresentar um menu na tela em que um usuário ADMIN possa: escolher algumas das opções 
+apresentadas pressionando a tecla específica no teclado+<enter>; o software envia pela USB (porta COM) e recebe
+comandos e dados, respectivamente, do sistema embarcado externo a esse computador que usa a UART a 115200 kbps.\\
+Quando o software é iniciado, o usuário ADMIN deve confirmar o início da conexão, e pode escolher da lista do menu: 
+\begin{itemize}
+  \item listar e pegar todos os eventos ocorridos em um determinado intervalo de datas; 
+  \item obter o tempo total em hh:mm que o controlador esteve ativo;
+  \item listar e pegar os eventos instantâneos (\emph{real time});
+  \item desativar conexão/sair.
+\end{itemize}
+
+
 %\section{Resultados}
 
 %O software foi implementado e testado na plataforma Atlys e o comportamento do controlador funcionou conforme a especificação.
@@ -140,12 +162,15 @@ pode ser visto na \autoref{fig:diagrama-classes} do Apêndice A.
 %A funcionalidade do display Oled não foi implementada em sala por uma questão de tempo, visto que a equipe já havia utilizado o diplay Oled em exercícios anteriores, então decidiu focar nas funcionalidades que ainda não haviam sido exploradas pela equipe.
 %O código fonte encontra-se disponível no GitHub \cite{src-github}
 
-%\section*{Conclusão}
+\section{Conclusões}
+Falar 
+das vantagens da organização do projeto do sistema embarcado em camadas
+da dificuldade e superação inicial para abstração das camadas e clases do projeto
+das vantagens da modularidade dessa abordagem de organização
 
-%Com o desenvolvimento deste projeto, os benefícios do paradigma de programação orientada a objetos são evidentes.
-%Por exemplo, a escolha de implementação da máquina de estados utilizando herança e polimorfismo, além de estar mais condizente com os assuntos abordados em aula, se provou mais organizada e de mais fácil manutenção quando comparada com a implementação mais comumente empregada em linguagem C, utilizando enums e switch/case.
-%Esta abordagem facilita a implementação/inserção de novos estados, ou alterações nos estados já existentes.
-%Outra vantagem é a modularidade do código. As classes Keyboard e Oled podem facilmente ser reutilizadas em outras aplicações que necessitem dessas funcionalidades.
+que a principal dificuldade da disciplina como um todo foi entender o uso da ferramenta de 
+controle de versão Git, a navegação para trabalho em cada \emph{branch} e as ``imagens no tempo''
+para os \emph{commits} do repositório no GitHub.
 
 \bibliography{bibliography}
 \onecolumn
@@ -154,8 +179,8 @@ pode ser visto na \autoref{fig:diagrama-classes} do Apêndice A.
 %\section{Apêndice A}
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=0.44]{figures/Diagrama_Classe_Projeto_Final.png}
-  \caption{Diagrama de classes do projeto organizado em camadas.}
+  \includegraphics[keepaspectratio=true,scale=0.53]{figures/Diagrama_Classe_Projeto_Final_rev2.png}
+  \caption{Diagrama de classes revisado do projeto organizado em camadas.}
   \label{fig:diagrama-classes}
 \end{figure}
 
