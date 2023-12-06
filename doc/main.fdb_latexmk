@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1701874772 "main.aux" "main.bbl" "main" 1701874776 0
+["bibtex main"] 1701894394 "main.aux" "main.bbl" "main" 1701894398 0
   "./bibliography.bib" 1701310778 2211 bb7925034539858be8974ade616e9aa9 ""
   "c:/texlive/2023/texmf-dist/bibtex/bst/ieeetran/IEEEtranN.bst" 1700204515 63583 d34cb6c328acc69716207f4a3421ad46 ""
-  "main.aux" 1701874775 4735 3c52021cdcfffeb0938f45bc7380b759 "pdflatex"
+  "main.aux" 1701894396 4719 d2bc72b04b2bc751a1b5b1bd3e61bba8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1701874773 "c:/Users/gusta/codes/ElectronicCompass/doc/main.tex" "main.pdf" "main" 1701874776 0
-  "c:/Users/gusta/codes/ElectronicCompass/doc/main.tex" 1701874769 24376 30a8d8972edac318d63cb81667691475 ""
+["pdflatex"] 1701894394 "c:/Users/gusta/codes/ElectronicCompass/doc/main.tex" "main.pdf" "main" 1701894398 0
+  "c:/Users/gusta/codes/ElectronicCompass/doc/main.tex" 1701894389 26041 9b6da2d10c46d31b9abbf4af21742ee5 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1700203446 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1700203446 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1700204150 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -201,10 +201,10 @@
   "figures/maquina_estados1.png" 1700705124 81673 dd0e4d3f3a25ed33e33448837a27b0ed ""
   "figures/maquina_estados2.2.png" 1700705124 105428 e4ead1bbb8e3f50edce7166681615f4d ""
   "figures/montagem.jpg" 1701874359 976626 e78f383e3cd0c374eaf0e117c39040e3 ""
-  "main.aux" 1701874775 4735 3c52021cdcfffeb0938f45bc7380b759 "pdflatex"
-  "main.bbl" 1701874773 1678 370dd416aa9c8f560b57f2ba672af2da "bibtex main"
-  "main.out" 1701874775 2648 b1f4d324f14430ef4b1f27570e574fc0 "pdflatex"
-  "main.tex" 1701874769 24376 30a8d8972edac318d63cb81667691475 ""
+  "main.aux" 1701894396 4719 d2bc72b04b2bc751a1b5b1bd3e61bba8 "pdflatex"
+  "main.bbl" 1701894394 1678 370dd416aa9c8f560b57f2ba672af2da "bibtex main"
+  "main.out" 1701894396 2582 e394c185ccc19002157c8c6a5a61a29d "pdflatex"
+  "main.tex" 1701894389 26041 9b6da2d10c46d31b9abbf4af21742ee5 ""
   (generated)
   "main.aux"
   "main.log"

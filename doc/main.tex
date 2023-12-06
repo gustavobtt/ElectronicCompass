@@ -132,7 +132,7 @@ o que é uma boa prática para melhor documentar, estruturar e facilitar a compr
 pode ser visto na \autoref{fig:diagrama-classes} do no Apêndice A.
 
 \section{Design Proposto para o \emph{Host}}
-A proposta do \emph{Host} foi baseada implementação de um software que deve rodar no computador, na máquina 
+A proposta para o \emph{Host} é implementar um software que deve rodar no computador, na máquina 
 virtual WSL Ubuntu, apresentar um menu na tela em que um usuário ADMIN possa: escolher algumas das opções 
 apresentadas pressionando a tecla específica no teclado+<enter>; o software envia pela USB (porta COM) e recebe
 comandos e dados, respectivamente, do sistema embarcado externo a esse computador que usa a UART a 115200 kbps.\\
@@ -145,41 +145,32 @@ Quando o software é iniciado, o usuário ADMIN deve confirmar o início da cone
 \end{itemize}
 
 Usando o mesmo conceito de camadas para o projeto do software do \emph{Host}, o diagrama de classes é apresentado na \autoref{fig:diagrama-host} do Apêndice B. 
-Dessa maneira, a modularidade do projeto no \emph{Host} também é facilitada, por exemplo se houver interesse em implementar o sistema com outro módulo como STM32 ao invés da Raspberry Pi Pico. 
-A descrição das camadas é parecida com o que já foi descrito para o projeto embarcado:
+Dessa maneira, a modularidade do projeto no \emph{Host} também é facilitada, por exemplo se houver interesse em implementar o sistema para outro módulo como STM32 ao invés da Raspberry Pi Pico. 
+A descrição das camadas é parecida com o que já foi descrito para o projeto embarcado, de dentro para fora:
 \begin{itemize}
-  \item Hardware Abstraction Layer (HAL): Responsável por abstrair o hardware subjacente, incluindo os módulos do SDK da Raspberry Pi Pico.
-  \item Device Drivers Layer: Essa camada mais geral foi subdivididida após revisão, pois gerencia os drivers para GPIO, UART, comunicação sem fio (que são \emph{on-board} da Raspberry Pi Pico) e o magnetômetro (que é um dispositivo externo à Raspberry Pi Pico, por isso locado na subcamada de drivers externos).
-  \item Processing Layer: Lida com o processamento dos dados, incluindo a classe `DirectionCalculator`. Esta camada também pode ser usada 
-  para implementações futuras de técnicas de Digital Signal Processing como média móvel, dizimação, etc.
-  \item Control/Application Layer: Responsável por controlar as partes funcionais do equipamento. É o ponto central onde as operações 
+  \item Device Drivers Layer: Essa camada mais geral gerencia os drivers para comunicação com a Raspberry e o driver da serial port.
+  \item Control/Application Layer: Responsável por controlar o equipamento e os dados/comandos de saída/entrada. É o ponto central onde as operações 
   funcionais são coordenadas. 
-  \item User Interaction Layer: É a camada mais externa que lida com a interação do usuário, incluindo as classes `HeadingDisplay`, `Log`, 
-  e as interfaces de comunicação com o usuário.
+  \item User Interaction Layer: É a camada mais externa que lida com a interação do usuário, e sua interface com o software.
 \end{itemize}
-%Herança OK
-%Friends OK
-%Template
-%Funções virtuais
-%Tratamento de exceções
-%Sobrecarga de operadores OK
-%Polimorfismo (com classes abstratas)
 
 \section{Resultados de implementação}
-A execução do projeto como um todo levou em consideração o uso das técnicas apresentadas em aula, e alguns exemplos apresentados a seguir constam nos códigos disponíveis no repositório do GitHub\cite{src-github}. 
+A execução do projeto como um todo levou em consideração o uso das técnicas apresentadas em aula. 
+Os exemplos apresentados a seguir constam em trechos dos códigos disponíveis no repositório do GitHub\cite{src-github}. 
 
 \subsection{Uso de Herança e Herança Múltipla}
-No decorrer do projeto o uso de Herança foi exencial, por exemplo nas classes Connection e PicoConnection do projeto do \emph{Hosto}, mas certamente o exemplo mais notável é de Herança Múltipla nas classes base Clock e Calendar e na classe derivada ClockCalendar. A classe ClockCalendar herda publicamente tanto de Clock quanto de Calendar, indicando a Herança Múltipla, como pode ser visto no trecho de código abaixo: 
+No decorrer do projeto o uso de Herança foi exencial, por exemplo nas classes Connection e PicoConnection do projeto do \emph{Host}, mas certamente o exemplo mais notável é de Herança Múltipla nas classes base Clock e Calendar e na classe derivada ClockCalendar. A classe ClockCalendar herda publicamente tanto de Clock quanto de Calendar, indicando a Herança Múltipla, como pode ser visto no trecho de código abaixo: 
 {\scriptsize
 \begin{verbatim}
   #include "ClockCalendar.hpp"
 
-  ClockCalendar::ClockCalendar(int t_day, int t_month, int t_year, 
-                      int t_hr, int t_min, int t_sec, int t_isPm)
+  ClockCalendar::ClockCalendar(int t_day, int t_month, 
+                int t_year, int t_hr, int t_min, int t_sec, 
+                int t_isPm)
       : Clock(t_hr, t_min, t_sec, t_isPm), Calendar(t_day, 
               t_month, t_year) {
-      // Inicializa classe base Clock com parametros de tempo
-      // Inicializa classe base Calendar com parametros de data
+      // Inicializa classe base Clock c.parametros de tempo
+      // Inicializa classe base Calendar c.parametros de data
   }
   
   void ClockCalendar::advance() {
@@ -214,7 +205,7 @@ Essa implementação pode ser vista nos códigos fonte dos arquivos Connection.h
 
 \subsection{Uso de Template}
 Um template pode ser útil para evitar a repetição de código ou para implementar algoritmos independentes de tipos. 
-Um exemplo de uso de template pode ser visto no projeto do \emph{Host}, especificamente na classe Data, que usa um template para definir um método chamado saveData, que salva os dados da fila dataQueue em um arquivo de texto, com qualquer tipo de dado que possa ser convertido em string.
+Um exemplo de uso de template pode ser visto no projeto do \emph{Host}, especificamente na classe Data, que usa um template para definir o método chamado saveData, que salva os dados da fila dataQueue em um arquivo de texto, com qualquer tipo de dado que possa ser convertido em string.
 Segue trecho do código citado: 
 {\scriptsize
 \begin{verbatim}
@@ -247,7 +238,6 @@ void Data::saveData(queue<T> dataQueue) {
     }
     else { 
       // Se arquivo não aberto
-
         cout << "Erro ao abrir o arquivo." << endl;
     }
     ...
@@ -258,7 +248,7 @@ void Data::saveData(queue<T> dataQueue) {
 
 \subsection{Uso de Funções Virtuais}
 As funções virtuais são funções ou métodos cujo comportamento pode ser sobrescrito em uma classe herdeira por uma função com a mesma assinatura e são parte fundamental para funcioanmento do conceito de Polimorfismo Abstrato.
-Um exemplo de uso de Funções virtuais no projeto do \emph{Host} pode ser visto nos códigos dos arquivos Connection.h e PicoConnection.h. Abaixo seguem recortes dos arquivos mostrando o uso (notar que trechos do código considerados irrelevantes para o exemplo foram omitido com ``...''):
+Um exemplo de uso de Funções virtuais no projeto do \emph{Host} pode ser visto nos códigos dos arquivos Connection.h e PicoConnection.h abaixo, respectivamente. Abaixo seguem recortes dos arquivos mostrando o uso (notar que trechos do código considerados irrelevantes para o exemplo foram omitido com ``...''):
 {\scriptsize
 \begin{verbatim}
     ...
@@ -308,8 +298,8 @@ Um exemplo de uso de Funções virtuais no projeto do \emph{Host} pode ser visto
 \end{verbatim}
 }
 
-\subsection{Uso Tratamento de Exceções}
-Tratamento de exceções é um recurso que permite lidar com situações de erro ou anormais e consiste em três palavras-chave: try, throw e catch.
+\subsection{Uso do Tratamento de Exceções}
+Tratamento de exceções é um recurso que permite lidar com situações de erro ou anormais e sua aplicação consiste no uso de três palavras-chave: try, throw e catch.
 No trecho de código abaixo da classe DirectionCalculator do projeto embarcado é apresentada uma solução pra tratamento da exceção de divisão por zero:
 
 {\scriptsize
@@ -324,54 +314,54 @@ No trecho de código abaixo da classe DirectionCalculator do projeto embarcado �
       // bloco try-catch para tratar a excecao
       try {
 
-          // Verificar se os dados brutos sao validos
+          // Verifica se os dados brutos sao validos
           if (rawX <= 0 || rawY <= 0) {
 
-              // Lançar uma excecao com a mensagem
+              // Lanca uma excecao com a mensagem
               throw "Dados brutos inválidos";
           }
           else {
 
-              // Realizar calculos para obter a direcao
-              // (substituir com a logica real)
+              // Realiza calculos para obter a direcao
+              // (trecho em implementação)
               double calculatedDirection = rawX + rawY;
   
-              // Atualizar o log com dados 
+              // Atualiza o log com dados 
               updateLog("Direction calculated: " 
                 + std::to_string(calculatedDirection));
           }
       }
       catch (const char* msg) {
         
-          // Capturar a excecao se for uma string
-          // Mostrar a mensagem de erro
+          // Captura a excecao se for uma string
+          // Mostra a mensagem de erro
           cerr << "Erro: " << msg << endl;
       }
   }
  int main() {
 
-    // Criar um objeto da classe Log
+    // Cria objeto da classe Log
     Log log;
 
-    // Criar objeto DirectionCalc e passa log como parametro
+    // Cria objeto DirectionCalc e passa log como parametro
     DirectionCalc dc(log);
 
     // bloco try-catch para tratar a excecao
     try {
 
-        // Chamar o metodo calculateDirection do objeto dc
+        // Chama o metodo calculateDirection do objeto dc
         dc.calculateDirection();
     }
     catch (const char* msg) {
 
-        // Capturar a excecao se for uma string
-        // Mostrar a mensagem de erro
+        // Captura a excecao se for uma string
+        // Mostra a mensagem de erro
         cerr << "Erro: " << msg << endl;
     }
     catch (...) {
 
-        // Capturar qualquer outra excecao
-        // Mostrar uma mensagem generica
+        // Captura qualquer outra excecao
+        // Mostra mensagem erro
         cerr << "Erro desconhecido" << endl;
     }
     return 0;
@@ -381,7 +371,7 @@ No trecho de código abaixo da classe DirectionCalculator do projeto embarcado �
 }
 
 \subsection{Uso de sobrecarga de operadores}
-Um exemplo de sobrecarga de operador de inserção (<<) foi utilizado para a inserção de registro à fila da classe Log:
+Um exemplo de sobrecarga do operador de inserção ``<<'' (que pode ajudar a organizar a estrutura e comprimento do código) foi utilizado para a inserção de registro à fila da classe Log do projeto embarcado:
 {\scriptsize
 \begin{verbatim}
   #ifndef LOG_H
@@ -389,14 +379,15 @@ Um exemplo de sobrecarga de operador de inserção (<<) foi utilizado para a ins
   
   #include <queue>
   #include <string>
-  #include "Compass.h"        // Incluindo classe Compass
-  #include "DirectionCalc.h"  // Incluindo classe DirectionCalc
-  #include "UART.h"           // Incluindo classe UART/USB
-  #include "Wireless.h"       // Incluindo classe Wireless
+  #include "Compass.h"        // Inclui classe Compass
+  #include "DirectionCalc.h"  // Inclui classe DirectionCalc
+  #include "UART.h"           // Inclui classe UART/USB
+  #include "Wireless.h"       // Inclui classe Wireless
   
   class Log {
   public:
-      // Construtor aceita objetos relacionados como parametros
+      // Construtor aceita objetos relacionados 
+      //como parametros
       Log(Compass& compass, DirectionCalc& directionCalc, 
           UART& uart, Wireless& wireless);
   
@@ -412,28 +403,40 @@ permitindo que classes derivadas de uma única classe base invoquem métodos com
 De fato, neste projeto o uso de funções virtuais e herança, caracterizam o emprego de polimorfismo com classes abstratas. Por exemplo na classe base Connection e classe derivada PicoConnection do projeto do \emph{Host} já exemplificadas acima na subseção ``Uso de Funções Virtuais''.
 
 
-\subsection[short]{Implementação de lista e fila ()\emph{Queue})}
+\subsection[short]{Implementação de lista e fila (\emph{Queue})}
 Os eventos da fila com ID do sistema embarcado, data/hora do evento usando o 
-ClockCalendar foram implementados na clase Log do projeto embarcado e a lista do projeto do \emph{Host} já teve implementação apresentada acima no subitem Uso de Template, onde também foi implementada a limpeza da fila quando log é transferido.
-para \emph{host}.
-//\subsection[short]{Implementação da comunicação UART/USB}
+ClockCalendar foram implementados na clase Log do projeto embarcado e a lista do projeto do \emph{Host} já teve implementação apresentada acima no subitem Uso de Template, onde também foi implementada a limpeza da fila quando log é transferido para o \emph{host}.
+%\subsection[short]{Implementação da comunicação UART/USB}
 
-//\subsection[short]{Implementação da Wireless}
-
+\subsection[short]{Implementação da Wireless}
+Apesar de dessa parte do projeto não ser mais requisito, ela tem menção em vários trechos do projeto e facilmente pode ser retomada utilizando o próprio WirelessDriver disponível em algumas versões da Raspberry Pi Pico, entrando na parte do projeto embarcado na camada Onboard Drivers Layer.
+A outra ``ponta'' da comunicação wireless pode ser um smartphone Android com software projetado nos mesmos moldes do projeto de software do \emph{Host}.
 \subsection[short]{Montagem dos módulos/circuitos}
-A montagem dos módulos foi realizada em protoboard conforme 
-
-O código fonte encontra-se disponível no GitHub \cite{src-github}
+A montagem dos módulos foi realizada em protoboard conforme a \autoref{fig:montagem} do Apêndice C. Mais a esquerda na imagem encontra-se o módulo magnetômetro HoneyWell \cite{HMR3300_Datasheet}. 
+Foi implementado circuito com transistores para ajustar as tensões de 3.3V e 5V entre as conexões SPI do módulo magnetômetro \cite{HMR3300_Datasheet} e a Raspberry Pi Pico \cite{RP2040_Datasheet}.
+Mais ao centro da imagem está o módulo Raspberry Pi Pico \cite{RP2040_Datasheet} rodeado pelos 8 LEDs previstos para indicação da direção (\emph{heading}).
+Mais a direita da imagem o módulo em vermelho está um conversor UART-USB da FTDI. 
 
 \section{Conclusões}
-Falar 
-das vantagens da organização do projeto do sistema embarcado em camadas
-da dificuldade e superação inicial para abstração das camadas e clases do projeto
-das vantagens da modularidade dessa abordagem de organização
-
-que a principal dificuldade da disciplina como um todo foi entender o uso da ferramenta de 
-controle de versão Git, a navegação para trabalho em cada \emph{branch} e as ``imagens no tempo''
-para os \emph{commits} do repositório no GitHub. O cuidado com arquivos que Windows cria ao copiar para WSL e dão erro de \emph{commit} ou arquivos a incluir no \emph{.gitignore}
+A organização do projeto de sistemas embarcados por blocos funcionais e, principalmente, por diagrama de 
+classes disposto em camadas, é certamente uma das principais vantagens constatadas no decorrer deste trabalho. 
+A abstração necessária para isso pode tomar certo tempo para ser desenvolvida, mas garante vislumbrar uma 
+estrutura de organização modular para um trabalho colaborativo, fracionado/compartimentado, restringindo 
+problemas a abrangência de problemas ou soluções de implementação a blocos de fácil identificação.
+Apesar da última versão do código do projeto não estar funciona no momento, apresenta organização, estrutura 
+e andamento considerável para que em poucos dias de estágio já haja uma versão fucional dessa bússola eletrônica.
+A documentação também ficou bem didática e completa para que qualquer membro da equipe possa replicar 
+resultados, desenvolver algum bloco funcional e colaborar de maneira oline na ferramenta de controle de versão.\\
+Cabe ressaltar que, em verdade a, a maior dificuldade  de entendimento foi o uso desta ferramenta de 
+controle de versão Git. A navegação para trabalhar em cada \emph{branch} e as ``imagens no tempo''
+para os \emph{commits} e \emph{merges} do repositório no GitHub eram contra intuitivos para quem estava 
+habituado a organizar as idéias em pastas. Algumas dificuldades surgiram por exemplo com o resultado do 
+descuido ao mover/copiar arquivos do Windows à máquina virtual WSL, onde surgiam arquivos incomptíveis 
+com os compiladores provocando erros diversos, especialmente nos \emph{commits}. Por outras vezes o problema 
+era como listar cuidadosamente os arquivos a incluir no \emph{.gitignore}, etc.\\
+Por fim o saldo é muito positivo: se sentir imerso num ambiente de trabalho voltado para projetos de sistemas
+embarcados parecia muito distante da realidade de quem sempre priorizou trabalhar e estudar a eletrônica
+analógica.
 
 \bibliography{bibliography}
 \onecolumn

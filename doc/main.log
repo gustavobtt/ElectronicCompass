@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  6 DEC 2023 11:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  6 DEC 2023 17:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1029,7 +1029,7 @@ LaTeX Font Info:    Trying to load font information for OT1+bch on input line 41
  (c:/texlive/2023/texmf-dist/tex/latex/psnfss/ot1bch.fd
 File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
 )
-<figures/ProjetoFinalCPP_Diagrama.png, id=78, 379.4175pt x 412.54124pt>
+<figures/ProjetoFinalCPP_Diagrama.png, id=74, 379.4175pt x 412.54124pt>
 File: figures/ProjetoFinalCPP_Diagrama.png Graphic file (type png)
 <use figures/ProjetoFinalCPP_Diagrama.png>
 Package pdftex.def Info: figures/ProjetoFinalCPP_Diagrama.png  used on input line 62.
@@ -1038,12 +1038,12 @@ Package pdftex.def Info: figures/ProjetoFinalCPP_Diagrama.png  used on input lin
 
 
 {c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figures/ProjetoFinalCPP_Diagrama.png>]
-<figures/maquina_estados1.png, id=99, 410.13225pt x 241.50224pt>
+<figures/maquina_estados1.png, id=95, 410.13225pt x 241.50224pt>
 File: figures/maquina_estados1.png Graphic file (type png)
 <use figures/maquina_estados1.png>
 Package pdftex.def Info: figures/maquina_estados1.png  used on input line 97.
 (pdftex.def)             Requested size: 222.62206pt x 131.0873pt.
-<figures/maquina_estados2.2.png, id=101, 422.17725pt x 248.72925pt>
+<figures/maquina_estados2.2.png, id=97, 422.17725pt x 248.72925pt>
 File: figures/maquina_estados2.2.png Graphic file (type png)
 <use figures/maquina_estados2.2.png>
 Package pdftex.def Info: figures/maquina_estados2.2.png  used on input line 109.
@@ -1053,55 +1053,30 @@ Package pdftex.def Info: figures/maquina_estados2.2.png  used on input line 109.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [2 <./figures/maquina_estados1.png> <./figures/maquina_estados2.2.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 174.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 164.
  (c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Overfull \hbox (22.75502pt too wide) in paragraph at lines 177--177
-[]  \T1/cmtt/m/n/7 ClockCalendar::ClockCalendar(int t_day, int t_month, int t_year,[] 
+Overfull \hbox (4.16585pt too wide) in paragraph at lines 173--173
+[]      \T1/cmtt/m/n/7 // Inicializa classe base Calendar c.parametros de data[] 
  []
 
 
-Overfull \hbox (19.03719pt too wide) in paragraph at lines 178--178
-[]                      \T1/cmtt/m/n/7 int t_hr, int t_min, int t_sec, int t_isPm)[] 
- []
-
-
-Overfull \hbox (4.16585pt too wide) in paragraph at lines 181--181
-[]      \T1/cmtt/m/n/7 // Inicializa classe base Clock com parametros de tempo[] 
- []
-
-
-Overfull \hbox (11.60152pt too wide) in paragraph at lines 182--182
-[]      \T1/cmtt/m/n/7 // Inicializa classe base Calendar com parametros de data[] 
- []
-
-
-Overfull \hbox (4.16585pt too wide) in paragraph at lines 186--186
+Overfull \hbox (4.16585pt too wide) in paragraph at lines 177--177
 []      \T1/cmtt/m/n/7 // Implementacao de advance() para classe ClockCalendar[] 
  []
 
 [3] [4]
-Overfull \hbox (11.60152pt too wide) in paragraph at lines 393--393
-[]  \T1/cmtt/m/n/7 #include "DirectionCalc.h"  // Incluindo classe DirectionCalc[] 
- []
-
-
-Overfull \hbox (11.60152pt too wide) in paragraph at lines 399--399
-[]      \T1/cmtt/m/n/7 // Construtor aceita objetos relacionados como parametros[] 
- []
-
-
-Underfull \hbox (badness 1521) in paragraph at lines 415--415
+Underfull \hbox (badness 1521) in paragraph at lines 406--406
 []\T1/cmr/bx/n/12 Implementação de lista e fila
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 414--414
 []\T1/cmr/bx/n/12 Montagem dos mó-du-
  []
 
-(./main.bbl
+(./main.bbl [5]
 Underfull \hbox (badness 3108) in paragraph at lines 31--33
 []\T1/cmr/m/n/10 Honeywell. Di-gi-tal com-pass so-lu-
  []
@@ -1126,37 +1101,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--33
 \T1/cmr/m/n/10 datasheet / N61-[]2047-[]000-[]000 _ Digital _
  []
 
-) [5]
-<figures/Diagrama_Classe_Projeto_Final_rev2.png, id=143, 701.7417pt x 987.9309pt>
+) [6
+
+]
+<figures/Diagrama_Classe_Projeto_Final_rev2.png, id=148, 701.7417pt x 987.9309pt>
 File: figures/Diagrama_Classe_Projeto_Final_rev2.png Graphic file (type png)
 <use figures/Diagrama_Classe_Projeto_Final_rev2.png>
-Package pdftex.def Info: figures/Diagrama_Classe_Projeto_Final_rev2.png  used on input line 445.
+Package pdftex.def Info: figures/Diagrama_Classe_Projeto_Final_rev2.png  used on input line 448.
 (pdftex.def)             Requested size: 371.92133pt x 523.60088pt.
- [6
-
- <./figures/Diagrama_Classe_Projeto_Final_rev2.png>]
-<figures/Diagrama_Classe_Host_PC.png, id=149, 619.3539pt x 709.6914pt>
-File: figures/Diagrama_Classe_Host_PC.png Graphic file (type png)
-<use figures/Diagrama_Classe_Host_PC.png>
-Package pdftex.def Info: figures/Diagrama_Classe_Host_PC.png  used on input line 457.
-(pdftex.def)             Requested size: 340.64569pt x 390.33148pt.
  [7
 
- <./figures/Diagrama_Classe_Host_PC.png>]
-<figures/montagem.jpg, id=158, 3620.52625pt x 2157.05875pt>
-File: figures/montagem.jpg Graphic file (type jpg)
-<use figures/montagem.jpg>
-Package pdftex.def Info: figures/montagem.jpg  used on input line 469.
-(pdftex.def)             Requested size: 434.44441pt x 258.83588pt.
+ <./figures/Diagrama_Classe_Projeto_Final_rev2.png>]
+<figures/Diagrama_Classe_Host_PC.png, id=156, 619.3539pt x 709.6914pt>
+File: figures/Diagrama_Classe_Host_PC.png Graphic file (type png)
+<use figures/Diagrama_Classe_Host_PC.png>
+Package pdftex.def Info: figures/Diagrama_Classe_Host_PC.png  used on input line 460.
+(pdftex.def)             Requested size: 340.64569pt x 390.33148pt.
  [8
 
+ <./figures/Diagrama_Classe_Host_PC.png>]
+<figures/montagem.jpg, id=163, 3620.52625pt x 2157.05875pt>
+File: figures/montagem.jpg Graphic file (type jpg)
+<use figures/montagem.jpg>
+Package pdftex.def Info: figures/montagem.jpg  used on input line 472.
+(pdftex.def)             Requested size: 434.44441pt x 258.83588pt.
+ [9
+
  <./figures/montagem.jpg>]
-<figures/PlanoTestes.png, id=165, 570.33075pt x 255.95625pt>
+<figures/PlanoTestes.png, id=169, 570.33075pt x 255.95625pt>
 File: figures/PlanoTestes.png Graphic file (type png)
 <use figures/PlanoTestes.png>
-Package pdftex.def Info: figures/PlanoTestes.png  used on input line 481.
+Package pdftex.def Info: figures/PlanoTestes.png  used on input line 484.
 (pdftex.def)             Requested size: 250.9463pt x 112.6211pt.
- [9
+ [10
 
  <./figures/PlanoTestes.png>] (./main.aux)
  ***********
@@ -1164,21 +1141,21 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B1F4D324F14430EF4B1F27570E574FC0;2648.
+(rerunfilecheck)             Checksum: E394C185CCC19002157C8C6A5A61A29D;2582.
  ) 
 Here is how much of TeX's memory you used:
- 22655 strings out of 474267
- 417945 string characters out of 5751470
- 1960558 words of memory out of 5000000
- 44417 multiletter control sequences out of 15000+600000
+ 22654 strings out of 474267
+ 417920 string characters out of 5751470
+ 1961558 words of memory out of 5000000
+ 44416 multiletter control sequences out of 15000+600000
  572917 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,101p,511b,646s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on main.pdf (9 pages, 1708676 bytes).
+Output written on main.pdf (10 pages, 1709850 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
+ 245 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
  44 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
