@@ -26,7 +26,7 @@ using namespace std;
 
 class Data {
     private:
-        queue<string> dataQueue; // Uma fila para armazenar os dados recebidos pela porta serial
+//        queue<string> dataQueue; // Uma fila para armazenar os dados recebidos pela porta serial
         list<string> dataList; // Uma lista para armazenar os dados da fila
     public:
         Data(); // Construtor padrão
@@ -34,6 +34,7 @@ class Data {
         void getData(Connection* conn); // Método para solicitar os dados pela porta serial, usando um ponteiro para um objeto da classe Connection como argumento
         void saveData(); // Método para salvar os dados da lista em um arquivo .TXT
         void showData(); // Método para mostrar os dados da lista na tela
+        friend class Connection; // Declara a classe Connection como amiga, para que ela possa acessar os membros privados de Data
 };
 
 #endif

@@ -20,6 +20,7 @@
 #include <string>
 #include "PicoConnection.h" // Inclui o arquivo de cabeçalho da classe PicoConnection
 #include "SerialPort.h" // Inclui o arquivo de cabecalho da classe SerialPort
+#include <queue>
 using namespace std;
 
 class Connection {
@@ -34,12 +35,14 @@ class Connection {
         ~Connection(); // Destrutor
         void connect(); // Metodo para conectar a porta serial
         void disconnect(); // Metodo para desconectar a porta serial
-        void send(string message); // Metodo para enviar uma mensagem pela porta serial
-        string receive(); // Metodo para receber uma mensagem pela porta serial
+        virtual void send(string message); // Metodo para enviar uma mensagem pela porta serial
+        virtual string receive(); // Metodo para receber uma mensagem pela porta serial
 //        void totalTime(); // Metodo para solicitar o tempo total em que a Raspberry Pi Pico esta rodando e o numero de records na memoria dela
 //        void getData(); // Metodo para solicitar um intervalo ou todos os dados do Log da memoria da Raspberry Pi Pico e transferir para a dataQueue
 //        void saveData(); // Metodo para salvar em arquivo .TXT linha a linha os dados da dataQueue
         void exit(); // Metodo para desativar a conexao e a porta serial
+        friend class Data; // Declara a classe Data como amiga, para que ela possa acessar os membros privados de Connection
+        queue<string> dataQueue; // Uma fila para armazenar os dados recebidos pela porta serial, declarada como pública para que a classe Data possa acessá-la
 };
 
 #endif
