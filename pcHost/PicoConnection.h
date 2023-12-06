@@ -33,6 +33,8 @@ class PicoConnection {
         void receiveResponse(); // Método para receber uma resposta pela porta serial
         void handleCommand(); // Método para lidar com o comando enviado, de acordo com o protocolo definido
         void handleResponse(); // Método para lidar com a resposta recebida, de acordo com o protocolo definido
+        void send(string message) override; // Metodo para enviar um comando pela porta serial
+        string receive() override; // Metodo para receber uma resposta pela porta serial
 };
 
 #endif
