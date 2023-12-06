@@ -27,15 +27,27 @@ void DirectionCalc::calculateDirection() {
     // Simulacao de calculos SUBSTITUIR DEPOIS PELOS CALCULOS REAIS
     rawX = 1.0;  
     rawY = 2.0;
+    // Adicionar um bloco try-catch para tratar a excecao
+    try {
+        // Verificar se os dados brutos sao validos
+        if (rawX <= 0 || rawY <= 0) {
+            // Lançar uma excecao com a mensagem
+            throw "Dados brutos inválidos";
+        }
+        else {
+            // Realizar calculos para obter a direcao
+            // (substituir com a logica real)
+            double calculatedDirection = rawX + rawY;
 
-    // Realizar calculos para obter a direcao
-    // (substituir com a logica real)
-    double calculatedDirection = rawX + rawY;
-
-    // Atualizar o log com dados 
-    updateLog("Direction calculated: " + std::to_string(calculatedDirection));
-}
-
+            // Atualizar o log com dados 
+            updateLog("Direction calculated: " + std::to_string(calculatedDirection));
+        }
+    }
+    catch (const char* msg) {
+        // Capturar a excecao se for uma string
+        // Mostrar a mensagem de erro
+        cerr << "Erro: " << msg << endl;
+    }
 // Metodo para obter a direcao calculada
 double DirectionCalc::getDirection() const {
     return rawX + rawY;  // Substitua com a logica real
@@ -51,4 +63,29 @@ void DirectionCalc::getRawData() {
     // Simulacao de obtencao de dados brutos - substitua com a logica real
     rawX = 1.0;
     rawY = 2.0;
+}
+}
+int main() {
+    // Criar um objeto da classe Log
+    Log log;
+
+    // Criar um objeto da classe DirectionCalc, passando o objeto log como parametro
+    DirectionCalc dc(log);
+
+    // Adicionar um bloco try-catch para tratar a excecao
+    try {
+        // Chamar o metodo calculateDirection do objeto dc
+        dc.calculateDirection();
+    }
+    catch (const char* msg) {
+        // Capturar a excecao se for uma string
+        // Mostrar a mensagem de erro
+        cerr << "Erro: " << msg << endl;
+    }
+    catch (...) {
+        // Capturar qualquer outra excecao
+        // Mostrar uma mensagem generica
+        cerr << "Erro desconhecido" << endl;
+    }
+    return 0;
 }

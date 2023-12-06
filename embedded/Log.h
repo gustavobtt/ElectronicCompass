@@ -10,7 +10,7 @@
  * 
  * note:       Cabecalho da Classe de Log/fila da 2a camada de Aplication/Control
  * 
- * Version:    V1.2             Date:2023-11-18
+ * Version:    V1.3             Date:2023-12-06
  * *******************************************************************************
  */
 #ifndef LOG_H
@@ -28,8 +28,8 @@ public:
     // Construtor que aceita objetos relacionados como parametros
     Log(Compass& compass, DirectionCalc& directionCalc, UART& uart, Wireless& wireless);
 
-    // Metodo para adicionar um log a fila
-    void addLog(int ID, const std::string& timestamp, const std::string& data);
+    // Sobrecarga do operador << para adicionar um log à fila
+    Log& operator<<(const std::string& logData);
 
     // Metodo para obter o tamanho da fila de logs
     size_t getLogSize() const;

@@ -1,6 +1,6 @@
 /**
  * *******************************************************************************
- * File:       Compass.h
+ * File:       Compass.cpp
  * 
  * Author:     Gustavo Batistell
  * Email:      gustavobtt@gmail.com
@@ -10,7 +10,7 @@
  * 
  * note:       Cabecalho da Classe Compass da Layer User Interaction, a mais externa
  * 
- * Version:    V1.1             Date:2023-11-17
+ * Version:    V1.2             Date:2023-12-06
  * *******************************************************************************
  */
 #ifndef COMPASS_H //diretiva de pre-processador garantem inclusao apenas uma vez
