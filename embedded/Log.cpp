@@ -10,95 +10,33 @@
  * 
  * note:       Implementacao da Classe de Log/fila da 2a camada de Aplication/Control
  * 
- * Version:    V1.2             Date:2023-11-18
+ * Version:    V1.3             Date:2023-12-06
  * *******************************************************************************
  */
 #include "Log.h"
 #include "pico/stdlib.h"  // conferir biblioteca da Raspberry Pi Pico
 
-Log::Log() {
-    // Inicializa conforme necessario
+// Implementação do construtor (mantido conforme necessário)
+Log::Log(Compass& compass, DirectionCalc& directionCalc, UART& uart, Wireless& wireless)
+    : compass(compass), directionCalc(&directionCalc), uart(&uart), wireless(&wireless) {
+    // Inicialização conforme necessário
 }
 
-Log::~Log() {
-    // A fila sera destruida automaticamente quando o objeto for destruido
-}
-
-temp Log::addLog(int ID, const char* timestamp, const char* data) {
-    // Cria instancia de LogData
-    LogData logEntry = {ID, timestamp, data};
-
+// Implementação da sobrecarga do operador <<
+Log& Log::operator<<(const std::string& logData) {
     // Adiciona o log na fila
-    return logQueue.Enqueue(logEntry);
+    logQueue.push(logData);
+    return *this;
 }
 
+// Implementação do método para obter o tamanho da fila de logs
 size_t Log::getLogSize() const {
-    // Obtem o tamanho da fila
-    return logQueue.Size();
+    return logQueue.size();
 }
 
+// Implementação do método para limpar a fila de logs
 void Log::clearLog() {
-    // Limpa a fila
-    logQueue.Clear();
-}
-
-Log::LogData Log::getNextLog() {
-    // Remove e retorna o proximo log da fila
-    return logQueue.Dequeue();
-}
-
-/* #include "Log.h"
-
-// Construtor
-Log::Log() : m_pStart(nullptr), m_pEnd(nullptr) {}
-
-// Destrutor
-Log::~Log() {
-    while (m_pStart != nullptr) {
-        LogNode* aux = m_pStart;
-        m_pStart = m_pStart->next;
-        delete aux;
+    while (!logQueue.empty()) {
+        logQueue.pop();
     }
-}
-
-// Adiciona um log à fila
-temp Log::addLog(int ID, const char* timestamp, const char* data) {
-    LogNode* auxNode = new LogNode{ID, timestamp, data, nullptr};
-    if (auxNode == nullptr) {
-        return ESP_ERR_NO_MEM;
-    }
-
-    if (m_pStart == nullptr) {
-        m_pStart = auxNode;
-        m_pEnd = m_pStart;
-    } else {
-        m_pEnd->next = auxNode;
-        m_pEnd = auxNode;
-    }
-
-    return ESP_OK;
-}
-
-// Obtém o tamanho da fila
-size_t Log::getLogSize() const {
-    size_t size = 0;
-    LogNode* current = m_pStart;
-
-    while (current != nullptr) {
-        size++;
-        current = current->next;
-    }
-
-    return size;
-} */
-
-// Limpa a fila
-void Log::clearLog() {
-    while (m_pStart != nullptr) {
-        LogNode* aux = m_pStart;
-        m_pStart = m_pStart->next;
-        delete aux;
-    }
-
-    m_pEnd = nullptr;
 }
