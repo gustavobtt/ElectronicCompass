@@ -10,7 +10,7 @@
  * 
  * note:       Implementacao da classe de coneccao
  * 
- * Version:    V1.0             Date:2023-11-22
+ * Version:    V1.2             Date:2023-12-06
  * *******************************************************************************
  */
 #include "Connection.h"
@@ -18,14 +18,16 @@
 // Construtor padrão
 Connection::Connection() {
     portName = "/dev/ttyUSB0"; // Define o nome da porta serial como /dev/ttyUSB0
-    baudRate = 115200; // Define a taxa de transmissão como 115200 bps
+    baudRate = 115200; // Define a taxa de transmissao como 115200 bps
     port = NULL; // Inicializa o ponteiro port com NULL
     connected = false; // Inicializa o booleano connected com false
+    device = new PicoConnection(); // Cria um novo objeto da classe PicoConnection e atribui ao ponteiro pico
 }
 
 // Destrutor
 Connection::~Connection() {
     disconnect(); // Chama o método disconnect
+    delete pico; // Deleta o objeto apontado por pico
 }
 
 // Método para conectar a porta serial
@@ -74,47 +76,13 @@ string Connection::receive() {
     return ""; // Retorna uma string vazia
 }
 
-// Método para solicitar o tempo total em que a Raspberry Pi Pico esta rodando e o número de records na memória dela
-void Connection::totalTime() {
-    if (connected) { // Se esta conectado
-        send("T"); // Envia o caractere T pela porta serial, indicando que quer o tempo total
-        string response = receive(); // Recebe a resposta pela porta serial e armazena na string response
-        if (!response.empty()) { // Se a resposta não esta vazia
-            cout << "Tempo total: " << response << endl; // Imprime o tempo total na tela
-        }
-        else { // Se a resposta esta vazia
-            cout << "Erro ao receber o tempo total." << endl;
-        }
+// Método para desativar a conexão e a porta serial
+void Connection::exit() {
+    if (connected) { // Se está conectado
+        send("X"); // Envia o caractere X pela porta serial, indicando que quer sair
+        disconnect(); // Chama o método disconnect
     }
-    else { // Se não esta conectado
-        cout << "Voce precisa se conectar primeiro." << endl;
+    else { // Se não está conectado
+        cout << "Você já está desconectado." << endl;
     }
 }
-// Método para salvar em arquivo .TXT linha a linha os dados da dataQueue
-void Connection::saveData() {
-    if (connected) { // Se esta conectado
-        if (!dataQueue.empty()) { // Se a fila dataQueue não esta vazia
-            ofstream file; // Cria um objeto da classe ofstream para manipular o arquivo
-            file.open("data.txt"); // Abre o arquivo data.txt
-            if (file.is_open()) { // Se o arquivo esta aberto
-                while (!dataQueue.empty()) { // Enquanto a fila dataQueue não esta vazia
-                    string data = dataQueue.front(); // Obtém o elemento da frente da fila dataQueue e armazena na string data
-                    file << data << endl; // Escreve a string data no arquivo, seguida de uma quebra de linha
-                    dataQueue.pop(); // Remove o elemento da frente da fila dataQueue
-                }
-                file.close(); // Fecha o arquivo
-                cout << "Dados salvos com sucesso." << endl;
-            }
-            else { // Se o arquivo não esta aberto
-                cout << "Erro ao abrir o arquivo." << endl;
-            }
-        }
-        else { // Se a fila dataQueue esta vazia
-            cout << "Não ha dados para salvar." << endl;
-        }
-    }
-    else { // Se não esta conectado
-        cout << "Voce precisa se conectar primeiro." << endl;
-    }
-}
-// Método para solic

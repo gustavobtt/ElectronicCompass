@@ -10,7 +10,7 @@
  * 
  * note:       Cabecalho da Classe de menu para o Host PC
  * 
- * Version:    V1.1             Date:2023-11-22
+ * Version:    V1.2             Date:2023-12-06
  * *******************************************************************************
  */
 // Classe Menu para imprimir na tela as opcoes disponiveis e receber a entrada do usuario
@@ -20,12 +20,16 @@
 #include <iostream>
 #include <string>
 #include "Connection.h" // Inclui o arquivo de cabecalho da classe Connection
+#include "Data.h" // Inclui o arquivo de cabeçalho da classe Data
+#include "TotalTime.h" // Inclui o arquivo de cabeçalho da classe TotalTime
 using namespace std;
 
 class Menu {
     private:
         Connection* conn; // Um ponteiro para um objeto da classe Connection
         string input; // Uma string para armazenar a entrada do usuario
+        Data* data; // Um ponteiro para um objeto da classe Data
+        TotalTime* totalTime; // Um ponteiro para um objeto da classe TotalTime
     public:
         Menu(); // Construtor padrao
         ~Menu(); // Destrutor

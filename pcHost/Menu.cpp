@@ -19,11 +19,15 @@
 Menu::Menu() {
     conn = new Connection(); // Cria um novo objeto da classe Connection e atribui ao ponteiro conn
     input = ""; // Inicializa a string input com uma string vazia
+    data = new Data(); // Cria um novo objeto da classe Data e atribui ao ponteiro data
+    totalTime = new TotalTime(); // Cria um novo objeto da classe TotalTime e atribui ao ponteiro totalTime    
 }
 
 // Destrutor
 Menu::~Menu() {
     delete conn; // Deleta o objeto apontado por conn
+    delete data; // Deleta o objeto apontado por data
+    delete totalTime; // Deleta o objeto apontado por totalTime
 }
 
 // Metodo para mostrar o Menu na tela
